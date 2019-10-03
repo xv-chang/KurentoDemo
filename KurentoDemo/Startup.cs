@@ -18,10 +18,9 @@ namespace KurentoDemo
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
-        
-
-  
-            services.AddSingleton(p => new KurentoClient(Configuration.GetValue<string>("KurentoURL")));
+       
+            //there is your kms address
+            services.AddSingleton(p => new KurentoClient("ws://127.0.0.1:8888/kurento"));
             services.AddSingleton<RoomSessionManager>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddSignalR(config =>
